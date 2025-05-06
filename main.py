@@ -27,6 +27,10 @@ model = CatBoostRegressor(
 
 model.fit(X_train, y_train)
 
+import joblib
+
+joblib.dump(model, 'model.pkl')
+
 y_pred = model.predict(X_test)
 
 print("MAE:", mean_absolute_error(y_test, y_pred))
